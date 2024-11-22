@@ -52,9 +52,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         request ->
                                 request
-                                        .requestMatchers("/api/user/register","/api/user/login")
+                                        .requestMatchers("/api/auth/register","/api/auth/login")
                                         .permitAll()
-                                        .requestMatchers("/api/user/**")
+                                        .requestMatchers("/api/auth/**")
                                         .hasAnyAuthority("USER", "ADMIN")
                                         .anyRequest()
                                         .authenticated())
@@ -64,7 +64,7 @@ public class SecurityConfig {
                 .logout(
                         logout ->
                                 logout
-                                        .logoutUrl("/api/user/logout")
+                                        .logoutUrl("/api/auth/logout")
                                         .logoutSuccessHandler(this::logoutSuccessHandler)
                                         .permitAll());
 
