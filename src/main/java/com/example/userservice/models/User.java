@@ -14,6 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "users")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
   @Id
@@ -26,23 +29,12 @@ public class User implements UserDetails {
 
   @Column(nullable = false)
   private String email;
-
-  @Column(nullable = false)
+  
   private String password;
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
   private Role role;
-
-  public User(String firstname, String lastname, String email, String password, Role role) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.email = email;
-    this.password = password;
-    this.role = role;
-  }
-
-  public User() {}
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -51,7 +43,7 @@ public class User implements UserDetails {
 
   @Override
   public String getPassword() {
-    return password;
+    return "";
   }
 
   @Override

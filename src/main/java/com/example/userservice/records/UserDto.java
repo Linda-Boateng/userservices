@@ -1,5 +1,19 @@
 package com.example.userservice.records;
 
 import com.example.userservice.models.Role;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record UserDto(Long id, String firstname, String lastname, String email, String password, Role role, String token) {}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserDto {
+   private Long id;
+   private String firstname;
+   private String lastname;
+   private String email;
+   private String password;
+   private Role role;
+   private String token;
+}

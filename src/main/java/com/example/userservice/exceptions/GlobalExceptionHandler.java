@@ -19,4 +19,12 @@ public class GlobalExceptionHandler {
                 new ErrorResponseDto(httpServletRequest.getRequestURI(), exception.getMessage()),
                 HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    ResponseEntity<ErrorResponseDto> handleBadCredentials(
+            BadCredentialsException exception, HttpServletRequest httpServletRequest) {
+        return new ResponseEntity<>(
+                new ErrorResponseDto(httpServletRequest.getRequestURI(), exception.getMessage()),
+                HttpStatus.BAD_REQUEST);
+    }
 }

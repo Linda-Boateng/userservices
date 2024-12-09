@@ -35,6 +35,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-oauth2-client</artifactId>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-authorization-server</artifactId>
+		</dependency>
+
+		<!-- OAuth2 and OpenID Connect -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+
+		<!-- JWT and OAuth2 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-jose</artifactId>
+			<version>6.4.1</version>
+		</dependency>
+		<!--		<dependency>-->
+<!--			<groupId>com.google.oauth-client</groupId>-->
+<!--			<artifactId>google-oauth-client</artifactId>-->
+<!--			<version>1.33.3</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -83,6 +110,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>4.4.0</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

@@ -6,4 +6,8 @@ public interface UserService {
     UserDto createUser(UserDto userDto);
 
     UserDto loginUser(UserDto userDto);
+
+    UserDto getUser(String email);
+
+    UserDto getSocialUserDetails(String email);
 }
