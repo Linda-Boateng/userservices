@@ -8,7 +8,6 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.userservice.dtos.JwtErrorResponseDto;
 import com.example.userservice.exceptions.BadCredentialsException;
 import com.example.userservice.models.Role;
-import com.example.userservice.models.User;
 import com.example.userservice.records.UserDto;
 import com.example.userservice.services.userservice.UserCreationService;
 import com.example.userservice.services.userservice.UserDetailsServiceImpl;
@@ -28,6 +27,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/**
+ * JWT authentication filter This filter is responsible for authorizing the user using the JWT token
+ */
 @Service
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -59,10 +61,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         userDto.setEmail(email);
         userDto.setFirstname(firstname);
         userDto.setLastname(lastname);
-
-        System.out.println("email: " + email);
-        System.out.println("firstname: " + firstname);
-        System.out.println("lastname: " + lastname);
 
         if (request.getRequestURI().contains("api/v1/admin")
             && !decodedJWT.getClaim("role").asString().equals("ADMIN")) {
@@ -106,7 +104,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     return path.equals("/api/auth/register")
         || path.equals("/api/auth/login")
         || path.contains("/oauth2/")
-        || path.contains("/.well-known/jwks.json");
+        || path.contains("/swagger-ui/")
+        || path.contains("/v3/api-docs/");
   }
 
   private DecodedJWT decodeJwt(String jwt) {

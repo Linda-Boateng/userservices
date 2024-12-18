@@ -13,6 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * User details service implementation
+ */
 @Configuration
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
